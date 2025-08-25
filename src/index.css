@@ -1,0 +1,45 @@
+@import "tailwindcss";
+/* Custom styles for the sidebar menu */
+.ant-menu-item {
+  height: 50px !important;
+  line-height: 50px !important;
+  margin: 4px 8px !important;
+  border-radius: 8px !important;
+  padding: 0 16px !important;
+}
+
+.ant-menu-item:hover {
+  background-color: #f0f5ff !important;
+}
+
+.ant-menu-item-selected {
+  background-color: #f0f5ff !important;
+  color: #1890ff !important;
+}
+
+.ant-menu-item-selected .anticon {
+  color: #1890ff !important;
+}
+
+.ant-menu-item:active {
+  background-color: #d6e4ff !important;
+}
+
+/* Override Ant Design defaults */
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-layout-content {
+  background: transparent !important;
+}
+
+/* Remove any default margins/padding that might be causing issues */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background-color: #f9fafb; /* gray-50 equivalent */
+}
