@@ -4,7 +4,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Activity from './Activity';  
 import { useSidebar } from '../../context/SidebarContext';
-import { MessageOutlined, CloseOutlined } from '@ant-design/icons';
+import { MessageOutlined } from '@ant-design/icons';
 
 const DashboardLayout = () => {
   const { collapsed, setCollapsed, isMobile } = useSidebar();
@@ -14,9 +14,12 @@ const DashboardLayout = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
       <Sidebar />
       
-      {/* Main content area */}
-      <div className={`flex-1 flex flex-col transition-all duration-300 ${isMobile ? 'ml-0' : collapsed ? 'ml-0' : 'md:ml-64'}`}>
-        <Header />
+      {/* Main content area - ensure proper width calculation */}
+      <div className={`flex-1 flex flex-col w-full ${isMobile ? 'ml-0' : collapsed ? 'ml-0' : 'md:ml-55'}`}>
+        {/* Header with full width */}
+        <div className="w-full">
+          <Header />
+        </div>
         
         {/* Mobile activity toggle button */}
         {isMobile && (
@@ -28,45 +31,42 @@ const DashboardLayout = () => {
           </button>
         )}
         
-        <main className="flex-1 p-4 md:p-6">
-          <div className="bg-white rounded-lg shadow-sm p-4 md:p-6 min-h-full">
+        <main className="flex-1  w-full">
+          <div className="bg-white rounded-lg shadow-sm p-4 md:p-6 min-h-full w-full">
             <Outlet />
           </div>
         </main>
       </div>
       
-      {/* Activity bar - hidden on mobile by default, shown when toggled */}
-      <div className={`${isMobile ? (activityOpen ? 'fixed inset-0 z-40' : 'hidden') : 'block'}`}>
-        {isMobile && activityOpen && (
-          <div className="absolute top-0 right-0 z-50 h-full w-full bg-white">
-            {/* Close drawer header */}
-            <div className="p-4 border-b border-gray-200 flex justify-between items-center bg-white">
-              <span className="font-semibold text-gray-800">Activity</span>
-              <button 
-                onClick={() => setActivityOpen(false)}
-                className="p-1 rounded-full hover:bg-gray-100 transition-colors"
-              >
-                <CloseOutlined className="text-gray-600 text-lg" />
-              </button>
-            </div>
-            <Activity />
-          </div>
-        )}
-        {!isMobile && <Activity />}
-      </div>
+      {/* Activity bar - only visible on desktop by default */}
+      {!isMobile && (
+        <div className="w-80">
+          <Activity isMobile={false} />
+        </div>
+      )}
       
-      {/* Overlays */}
+      {/* Mobile Activity drawer */}
+      {isMobile && activityOpen && (
+        <div className="fixed inset-0 z-40">
+          <div className="absolute top-0 right-0 z-50 h-full w-4/5 bg-white shadow-xl">
+            <Activity 
+              isMobile={true} 
+              onClose={() => setActivityOpen(false)} 
+            />
+          </div>
+          {/* Overlay to close drawer */}
+          <div 
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setActivityOpen(false)}
+          />
+        </div>
+      )}
+      
+      {/* Sidebar overlay */}
       {isMobile && !collapsed && (
         <div 
           className="fixed inset-0 bg-black/50 z-30"
           onClick={() => setCollapsed(true)}
-        />
-      )}
-      
-      {isMobile && activityOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={() => setActivityOpen(false)}
         />
       )}
     </div>
