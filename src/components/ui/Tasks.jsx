@@ -4,8 +4,11 @@ import {
   MoreOutlined,
   DownOutlined,
   ClockCircleOutlined,
-  ClockCircleFilled
+  ClockCircleFilled,
+  SearchOutlined,
+  CodepenCircleFilled
 } from '@ant-design/icons';
+import { icons } from 'antd/es/image/PreviewGroup';
 
 const Tasks = () => {
   const [selectedWeek, setSelectedWeek] = useState('thisWeek');
@@ -14,6 +17,7 @@ const Tasks = () => {
     {
       id: 1,
       title: "Product Review for UIB Market",
+      icon : <CheckCircleOutlined />,
       status: "in progress",
       progress: 30,
       time: "4h"
@@ -21,6 +25,7 @@ const Tasks = () => {
     {
       id: 2,
       title: "UK Research for Product",
+      icon : <SearchOutlined />,
       status: "On hold",
       progress: 0,
       time: "9h"
@@ -28,6 +33,7 @@ const Tasks = () => {
     {
       id: 3,
       title: "App design and development",
+      icon : <CodepenCircleFilled />,
       status: "Done",
       progress: 100,
       time: "32h"
@@ -59,7 +65,7 @@ const Tasks = () => {
 //   };
 
   return (
-    <div className="bg-white p-6 mb-6 md:mx-6 mx-4">
+    <div className="bg-white p-4 mb-6 md:mx-6 ">
       {/* Header with Week Selector */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-gray-800">Current Tasks</h2>
@@ -73,7 +79,7 @@ const Tasks = () => {
             <select
               value={selectedWeek}
               onChange={(e) => setSelectedWeek(e.target.value)}
-              className="appearance-none bg-white border border-gray-300 rounded-lg py-1 px-3 pr-6 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+              className="appearance-none bg-white border border-gray-300 rounded-2xl py-1 px-3 pr-6 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent cursor-pointer"
             >
               {weekOptions.map(option => (
                 <option key={option.value} value={option.value}>
@@ -91,11 +97,11 @@ const Tasks = () => {
         {tasksData.map(task => (
           <div key={task.id} className="flex items-center justify-between space-x-4 p-3 ">
             <div>
-              <h4 className="text-sm font-medium text-gray-800 mb-1">{task.title}</h4>
+              <h4 className="text-sm font-medium text-gray-800 mb-1">  <span className='bg-emerald-100 p-2 rounded-4xl'>{task.icon}</span> {task.title}</h4>
             </div>
 
             <div>
-                <h4>{task.status}</h4>
+                <h4><span className='text-xl font-extrabold text-blue-500'>.</span> {task.status}</h4>
             </div>
 
             <div className='flex text-gray-400 items-center space-x-2'>

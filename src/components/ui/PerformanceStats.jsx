@@ -33,7 +33,7 @@ const PerformanceStats = () => {
                       <select
                         value={selectedWeek}
                         onChange={(e) => setSelectedWeek(e.target.value)}
-                        className="appearance-none bg-white border border-gray-300 rounded-lg py-1 px-3 pr-6 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+                        className="appearance-none bg-white border border-gray-300 rounded-2xl py-1 px-3 pr-6 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent cursor-pointer"
                       >
                         {weekOptions.map(option => (
                           <option key={option.value} value={option.value}>
