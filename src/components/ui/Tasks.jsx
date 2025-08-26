@@ -65,7 +65,7 @@ const Tasks = () => {
 //   };
 
   return (
-    <div className="bg-white p-4 mb-6 md:mx-6 ">
+    <div className="bg-white  mb-6 md:mx-6 ">
       {/* Header with Week Selector */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-gray-800">Current Tasks</h2>
@@ -93,20 +93,20 @@ const Tasks = () => {
       </div>
 
       {/* Tasks List */}
-      <div className="space-y-4 justify-between  mx-4">
+      <div className="space-y-4 justify-between ">
         {tasksData.map(task => (
-          <div key={task.id} className="flex items-center justify-between space-x-4 p-3 ">
+          <div key={task.id} className="flex justify-between space-x-2 p-2 ">
             <div>
-              <h4 className="text-sm font-medium text-gray-800 mb-1">  <span className='bg-emerald-100 p-2 rounded-4xl'>{task.icon}</span> {task.title}</h4>
+              <h4 className="text-sm font-medium text-gray-800 mb-1">  <span className='bg-emerald-100 p-2 mx-2 rounded-4xl'>{task.icon}</span> {task.title}</h4>
             </div>
 
             <div>
-                <h4><span className='text-xl font-extrabold text-blue-500'>.</span> {task.status}</h4>
+                <p><span className='text-xl font-extrabold text-blue-500'>.</span> {task.status}</p>
             </div>
 
             <div className='flex text-gray-400 items-center space-x-2'>
                  <ClockCircleFilled className='text-gray-400'/>
-                <h4 className="text-sm font-medium text-gray-800 mb-1">{task.time}</h4>
+                <p className="text-sm font-medium text-gray-800 mb-1">{task.time}</p>
             </div>
             
               <div>
