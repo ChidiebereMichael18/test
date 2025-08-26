@@ -49,7 +49,7 @@ const Sidebar = () => {
       >
         <div className="p-5 flex items-center justify-between ">
           <div className="flex items-center">
-            <h1 className="text-xl font-bold text-gray-800">Logip</h1>
+            <h1 className="text-xl text-center font-bold text-gray-800">Logip</h1>
           </div>
           {(isMobile || collapsed) && (
             <CloseOutlined

@@ -16,13 +16,13 @@ const ProfileCard = ({ user }) => {
         </div>
         <div className="flex items-center space-x-4 mt-4">
           <button className="p-1.5 rounded-full hover:bg-gray-100 transition-colors">
-            <PhoneOutlined className="bg-white rounded-2xl p-2 text-black text-lg" />
+            <PhoneOutlined className="bg-white cursor-pointer rounded-2xl p-2 text-black text-lg" />
           </button>
           <button className="p-1.5 rounded-full hover:bg-gray-100 transition-colors">
-            <VideoCameraOutlined className="bg-white rounded-2xl p-2 text-black text-lg" />
+            <VideoCameraOutlined className="bg-white cursor-pointer rounded-2xl p-2 text-black text-lg" />
           </button>
           <button className="p-1.5 rounded-full hover:bg-gray-100 transition-colors">
-            <MoreOutlined className="bg-white rounded-2xl p-2 text-black text-lg" />
+            <MoreOutlined className="bg-white cursor-pointer rounded-2xl p-2 text-black text-lg" />
           </button>
         </div>
       </div>
