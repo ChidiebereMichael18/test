@@ -25,7 +25,7 @@ const DashboardLayout = () => {
         {isMobile && (
           <button 
             onClick={() => setActivityOpen(true)}
-            className="fixed bottom-4 right-4 z-30 w-12 h-12 rounded-full bg-blue-500 text-white shadow-lg flex items-center justify-center md:hidden"
+            className="fixed bottom-4 right-4 z-30 w-12 h-12 rounded-full bg-blue-500 text-white shadow-lg flex items-center justify-center"
           >
             <MessageOutlined />
           </button>
@@ -48,7 +48,7 @@ const DashboardLayout = () => {
       {/* Mobile Activity drawer */}
       {isMobile && activityOpen && (
         <div className="fixed inset-0 z-40">
-          <div className="absolute top-0 right-0 z-50 h-full w-4/5 bg-white shadow-xl">
+          <div className="absolute top-0 right-0 z-50 h-full w-3/5 bg-white shadow-xl">
             <Activity 
               isMobile={true} 
               onClose={() => setActivityOpen(false)} 
